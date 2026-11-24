@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="456.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testeprojeto.controller.ListaController">
+    <children>
+        <Label fx:id="lbltarefa" alignment="CENTER" layoutX="229.0" layoutY="28.0" prefHeight="17.0" prefWidth="215.0" text="Tarefas">
+            <font>
+                <Font name="Arial Black" size="23.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblh2" layoutX="229.0" layoutY="63.0" prefHeight="17.0" prefWidth="227.0" text="Organize suas tarefas com simplicidade">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Pane layoutX="57.0" layoutY="100.0" prefHeight="330.0" prefWidth="580.0">
+            <children>
+                <TextField fx:id="abaadd" layoutX="21.0" layoutY="14.0" prefHeight="25.0" prefWidth="406.0" />
+                <Button fx:id="btnadd" onAction="#abrirCadastro" layoutX="439.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="+ Adiconar">
+                    <font>
+                        <Font name="Arial Black" size="13.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btntodas" onAction="#filtrarTodas" layoutX="100.0" layoutY="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Todas">
+                    <font>
+                        <Font name="Arial Black" size="13.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btnpendentes" onAction="#filtrarPendentes" layoutX="224.0" layoutY="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Pendentes">
+                    <font>
+                        <Font name="Arial Black" size="13.0" />
+                    </font>
+                </Button>
+                <Button fx:id="btnconcluidas" onAction="#filtrarConcluidas" layoutX="344.0" layoutY="51.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Concluidas">
+                    <font>
+                        <Font name="Arial Black" size="13.0" />
+                    </font>
+                </Button>
+                <TableView fx:id="listaTrefas" layoutX="7.0" layoutY="92.0" prefHeight="228.0" prefWidth="564.0">
+                    <columns>
+                        <TableColumn fx:id="colNome" prefWidth="75.0" text="Nome" />
+                        <TableColumn fx:id="colDesc" prefWidth="75.0" text="Desc" />
+                        <TableColumn fx:id="colData" prefWidth="75.0" text="Data" />
+                        <TableColumn fx:id="colStatus" prefWidth="75.0" text="Status" />
+                        <TableColumn fx:id="colPrioridade" prefWidth="75.0" text="Prioridade" />
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
