@@ -100,4 +100,7 @@ public class CadastroController {
         stage.setScene(new Scene(root));
         stage.show();
     }
+
+
+
 }

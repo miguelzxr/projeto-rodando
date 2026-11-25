@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="456.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testeprojeto.controller.ListaController">
+<AnchorPane stylesheets="@Style.css" prefHeight="456.0" prefWidth="673.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.testeprojeto.controller.ListaController">
     <children>
         <Label fx:id="lbltarefa" alignment="CENTER" layoutX="229.0" layoutY="28.0" prefHeight="17.0" prefWidth="215.0" text="Tarefas">
             <font>
@@ -51,8 +51,10 @@
                         <TableColumn fx:id="colData" prefWidth="75.0" text="Data" />
                         <TableColumn fx:id="colStatus" prefWidth="75.0" text="Status" />
                         <TableColumn fx:id="colPrioridade" prefWidth="75.0" text="Prioridade" />
+
                     </columns>
                 </TableView>
+
             </children>
         </Pane>
     </children>

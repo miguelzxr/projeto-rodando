@@ -67,6 +67,10 @@ public class ListaController {
     @FXML
     private TableColumn<Tarefa, Prioridade> colPrioridade;
 
+    @FXML
+    private TableColumn<Tarefa, Void> colEditar;
+
+
 
     private final TarefasServicos tarefasServicos = new TarefasServicos();
 
@@ -78,6 +82,7 @@ public class ListaController {
         colData.setCellValueFactory(new PropertyValueFactory<>("data"));
         colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
         colPrioridade.setCellValueFactory(new PropertyValueFactory<>("prioridade"));
+
 
         listaTrefas.setItems(tarefasServicos.getTarefas());
     }
@@ -119,4 +124,6 @@ public class ListaController {
         }
         listaTrefas.setItems(filtradas);
     }
+
+
 }
