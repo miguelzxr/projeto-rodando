@@ -15,11 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -67,9 +63,6 @@ public class ListaController {
     @FXML
     private TableColumn<Tarefa, Prioridade> colPrioridade;
 
-    @FXML
-    private TableColumn<Tarefa, Void> colEditar;
-
 
 
     private final TarefasServicos tarefasServicos = new TarefasServicos();
@@ -105,24 +98,31 @@ public class ListaController {
 
     @FXML
     public void filtrarPendentes() {
-        ObservableList<Tarefa> filtradas = FXCollections.observableArrayList();
-        for (Tarefa t : tarefasServicos.getTarefas()) {
-            if (t.getStatus() == Status.PENDENTE) {
-                filtradas.add(t);
-            }
-        }
-        listaTrefas.setItems(filtradas);
+        listaTrefas.setItems(
+                tarefasServicos.getTarefas().filtered(t -> t.getStatus() == Status.PENDENTE)
+        );
     }
 
     @FXML
     public void filtrarConcluidas() {
-        ObservableList<Tarefa> filtradas = FXCollections.observableArrayList();
-        for (Tarefa t : tarefasServicos.getTarefas()) {
-            if (t.getStatus() == Status.CONCLUIDA) {
-                filtradas.add(t);
-            }
+        listaTrefas.setItems(
+                tarefasServicos.getTarefas().filtered(t -> t.getStatus() == Status.CONCLUIDA)
+        );
+    }
+
+    @FXML
+    public void concluirTarefa() {
+        Tarefa selecionada = listaTrefas.getSelectionModel().getSelectedItem();
+
+        if (selecionada == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Concluida");
+            alert.setContentText("selecione uma tarefa!");
+            alert.show();
         }
-        listaTrefas.setItems(filtradas);
+
+        selecionada.setStatus(Status.CONCLUIDA);
+        listaTrefas.refresh();
     }
 
 

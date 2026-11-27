@@ -26,13 +26,17 @@ public class Tarefa {
     }
 
     public String getDescricao() {
+
         return descricao;
     }
+
     public void setDescricao(String descricao) {
+
         this.descricao = descricao;
     }
 
     public LocalDate getData() {
+
         return data;
     }
 
@@ -41,10 +45,12 @@ public class Tarefa {
     }
 
     public Status getStatus() {
+
         return status;
     }
 
     public void setStatus(Status status) {
+
         this.status = status;
     }
 
@@ -53,6 +59,7 @@ public class Tarefa {
     }
 
     public void setPrioridade(Prioridade prioridade) {
+
         this.prioridade = prioridade;
     }
 }
